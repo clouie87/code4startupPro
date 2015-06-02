@@ -2,19 +2,19 @@
 <header>
 	<!-- Dropdown for Nav bar -->
 	<ul id="dropdown1" class="dropdown-content">
-	  <li><a href="#!"> My Profile </a></li>
+	  <li><%= link_to "My Profile", edit_user_registration_path %></li>
 	  <li><a href="#!"> My Courses </a></li>
 	  <li class="divider"></li>
 	  <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 	</ul>
 	<!-- we create two one for mobile and one for web -->
 	<ul id="dropdown2" class="dropdown-content">
-	  <li><a href="#!"> My Profile </a></li>
+	  <li><%= link_to "My Profile", edit_user_registration_path %></li>
 	  <li><a href="#!"> My Courses </a></li>
 	  <li class="divider"></li>
 	  <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 	</ul>
-	
+
 	<nav class="brown lighten-4 z-depth-2">
 		<div class="container">
 			<div class="nav-wrapper">

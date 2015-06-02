@@ -1,16 +1,17 @@
-<h2>Forgot your password?</h2>
+<div class="row">
+  <div class="col m6 offset-m3 center">
+    <h2>Forgot your password?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+	  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+      <div class="input-field">
+        <%= f.email_field :email, :id => "email", :placeholder => "email", autofocus: true %>
+      </div>
+      
+      <button class="btn waves-effect waves-light" type="submit" name="action">Send me reset password instructions</button>
+      
+    <% end %>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  </div>    
+</div>
