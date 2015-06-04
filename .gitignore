@@ -15,3 +15,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore my api file
+
+/config/environments/development.rb 
+/app/mailers/my_mailer.rb

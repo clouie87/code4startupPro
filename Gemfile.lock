@@ -60,6 +60,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    excon (0.45.3)
     execjs (2.5.2)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
@@ -76,6 +77,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mandrill-api (1.0.52)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
     materialize-sass (0.96.2)
       sass (~> 3.3)
     mime-types (2.6.1)
@@ -137,6 +141,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    toastr-rails (1.0.3)
+      railties (>= 3.1.0)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -161,12 +167,14 @@ DEPENDENCIES
   devise (~> 3.5.1)
   jbuilder (~> 2.0)
   jquery-rails
+  mandrill-api (= 1.0.52)
   materialize-sass
   rails (= 4.2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
   sqlite3
+  toastr-rails
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

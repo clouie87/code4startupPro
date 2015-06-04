@@ -16,7 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'materialize-sass'
 gem 'devise', '~> 3.5.1'
-
+gem 'toastr-rails'
+gem 'mandrill-api', '1.0.52', require: 'mandrill'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
