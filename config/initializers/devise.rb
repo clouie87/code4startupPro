@@ -35,9 +35,13 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   require 'omniauth-google-oauth2'
-
   config.omniauth :google_oauth2, '623054663408-5h605itda2hbv5qb9a73p1dl4uo914n4.apps.googleusercontent.com', 'Ge9hC6fHS6ARbaf_5-GW8i2C', {access_type: "offline", approval_prompt: ""}
   
   require 'omniauth-facebook'
   config.omniauth :facebook, '1460106714283269', '81db2b0050921f8c038e5fa8846a0030'
+
+  require 'omniauth-github'
+  config.omniauth :github, 'a3a1f178edd26d76cbd8', '9f7f1bd7cb5180229b978da469c33ca4c918a893', scope: "user:email"
+
+
 end
