@@ -71,6 +71,7 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -201,6 +202,7 @@ GEM
       i18n
       polyamorous (~> 1.2)
     rdoc (4.2.0)
+    redcarpet (3.3.1)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     sass (3.4.14)
@@ -248,6 +250,7 @@ DEPENDENCIES
   active_skin
   activeadmin!
   byebug
+  coderay (~> 1.1.0)
   coffee-rails (~> 4.1.0)
   devise (~> 3.5.1)
   jbuilder (~> 2.0)
@@ -260,6 +263,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   paperclip (~> 4.2.1)
   rails (= 4.2.0)
+  redcarpet (~> 3.3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

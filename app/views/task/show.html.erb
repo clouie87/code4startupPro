@@ -1,4 +1,37 @@
-<h1><%= @task.title %></h1>
+<div class="row">
+	<div class="col m4">
+		<div class="card z-depth-2">
+			<div class="card-content">
+				<div class="collection">
+					<% @tasks.each do |task| %>
+						<% if task.header %>
 
-<p><%= @task.note %></p>
-<p><%= @task.video %></p>
+							<div class="collection-item active">
+								<i class="mdi-social-school"> <%= task.title %></i>
+							</div>
+						<% else %>
+							<%= link_to [task.project, task], class: "collection-item" do %>
+								<%= task.title %>
+							<% end %>
+						<% end %>
+					<% end %>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+
+	<div class="col m8">
+		<div class="card z-depth-2">
+			<div class="card-content">
+				<%= @task.video %>
+			</div>
+			<div class="card-action grey-text text-darken-4">
+				<h5><%= @task.title %></h5>
+				<hr>
+				<%= markdown(@task.note) %>
+			</div>
+		</div>
+	</div>
+</div>
