@@ -1,0 +1,43 @@
+<div class = "row">
+	<div class="col m4">
+		<div class="card z-depth-2">
+			<div class="center">
+				<h1>$<%= @project.price %></h1>
+			</div>
+			<div class="card-action center">
+				<button class="btn waves-effect waves-light pink darken-2">
+					Take this Project
+				</button>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col m8">
+		<div class="card z-depth-2">
+			<div class="card-image">
+				<%= image_tag @project.image %>
+			</div>
+			<div class="card-content grey-text text-darken-4">
+				<h5><%= @project.name %></h5>
+				<hr>
+				<%= @project.content %>
+
+				<div class="collection">
+					<% @tasks.each do |task| %>
+					<% if task.header %>
+						<div class="collection-item active">
+							<i class="mdi-social-school"> <%= task.title %></i>
+						</div>
+					<% else %>
+						<%= link_to [task.project, task], class: "collection-item" do %>
+							<%= task.title %>
+						<% end %>
+					<% end %>
+				<% end %>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
