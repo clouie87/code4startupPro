@@ -31,6 +31,9 @@ gem 'redcarpet', '~> 3.3.0'
 gem 'coderay', '~> 1.1.0'
 
 gem 'paperclip', '~> 4.2.1'
+
+gem 'friendly_id', '~> 5.1.0'
+gem "active_admin-sortable_tree", "~> 0.2.1"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
