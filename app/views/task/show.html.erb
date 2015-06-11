@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" data-no-turbolink>
 	<div class="col m4">
 		<div class="card z-depth-2">
 			<div class="card-content">
@@ -24,10 +24,33 @@
 
 	<div class="col m8">
 		<div class="card z-depth-2">
-			<div class="card-content">
-				<%= @task.video %>
+			<div id= "wistia_<%= @task.video %>"></div>
+
+			<div class="row">
+				<div class="col m6">
+					<% if !@prev_task.nil? %>
+						<%= link_to "Previous", [@prev_task.project, @prev_task], class: "btn btn-primary" %>
+					<% else %>
+						&nbsp;
+					<% end %>
+				</div>
+
+				<div class="col m6">
+					<% if !@next_task.nil? %>
+						<span class="right">
+							<%= link_to "Next", [@next_task.project, @next_task], class: "btn btn-primary" %>
+						</span>
+					<% end %>
+					
+				</div>
 			</div>
+
 			<div class="card-action grey-text text-darken-4">
+				<button class="btn btn-primary" onclick= "setPlaySpeed(0.75)" > 0.75 </button>
+				<button class="btn btn-primary" onclick= "setPlaySpeed(1.0)" > 1 </button>
+				<button class="btn btn-primary" onclick= "setPlaySpeed(1.5)" > 1.5 </button>
+				<button class="btn btn-primary" onclick= "setPlaySpeed(2)" > 2 </button>	
+
 				<h5><%= @task.title %></h5>
 				<hr>
 				<%= markdown(@task.note) %>
@@ -35,3 +58,16 @@
 		</div>
 	</div>
 </div>
+
+<script src="http://fast.wistia.net/static/E-v1.js"></script>
+
+<script>
+wistiaEmbed = Wistia.embed("<%= @task.video %>", {
+  videoQuality: "hd-only",
+  videoFoam: true
+});
+
+function setPlaySpeed(speed){
+	wistiaEmbed.playbackRate(speed);
+}
+</script>

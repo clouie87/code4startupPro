@@ -23,7 +23,7 @@
 				<hr>
 				<%= @project.content %>
 
-				<div class="collection">
+				<div class="collection" data-no-turbolink>
 					<% @tasks.each do |task| %>
 					<% if task.header %>
 						<div class="collection-item active">
