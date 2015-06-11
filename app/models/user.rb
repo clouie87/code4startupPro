@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, length: {maximum: 25}
   
+  has_many :subscriptions
+  has_many :projects, through: :subscriptions
+
   after_create :send_notification
 
   def send_notification

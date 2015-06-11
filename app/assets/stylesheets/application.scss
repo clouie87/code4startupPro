@@ -22,3 +22,15 @@ body {
   .container {
     width: 95%;
   } 
+
+  .avatar-small {
+    width: 50px;
+  }
+
+  .avatar-medium {
+    width: 80px;
+  }
+
+  .mask {
+    z-index: 99;
+  }

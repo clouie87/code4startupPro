@@ -1,14 +1,43 @@
 <div class = "row">
 	<div class="col m4">
 		<div class="card z-depth-2">
+			<% if !@joined %>
+
 			<div class="center">
-				<h1>$<%= @project.price %></h1>
+				<h1>$<%= @project.price == 0? 'Free' : "#{@project.price}" %></h1>
 			</div>
 			<div class="card-action center">
-				<button class="btn waves-effect waves-light pink darken-2">
-					Take this Project
-				</button>
+				<% if user_signed_in? %>
+					<%= form_tag free_path do %>
+					<%= hidden_field_tag 'project_id', @project.id %>
+						<button class="btn waves-effect waves-light pink darken-2">
+							Take this Project
+						</button>
+					<% end %>
+				<% else %>
+					<%= link_to new_user_session_path do %>
+						<button class="btn waves-effect waves-light pink darken-2">
+							Take this Project
+						</button>
+					<% end %>
+				<% end %>
 			</div>
+
+			<% else %>
+			<div class="card-content center">
+				<%= image_tag avatar_url(current_user), class: "circle responsive-image avatar-medium" %><br/>
+				<h5><%= current_user.name %></h5>
+			</div>
+			<div class="card-action center">
+				<% @users.each do |u| %>
+					<span class="valign-wrapper">
+						<%= image_tag avatar_url(u), class: "circle responsive-image avatar-small" %>&nbsp;
+						<%= u.name %>
+					</span><br/>
+				<% end %>
+			</div>
+
+			<% end %>
 		</div>
 	</div>
 

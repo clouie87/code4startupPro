@@ -1,16 +1,18 @@
 
 <header>
 	<!-- Dropdown for Nav bar -->
-	<ul id="dropdown1" class="dropdown-content">
+	<ul id="dropdown1" class="dropdown-content mask">
 	  <li><%= link_to "My Profile", edit_user_registration_path %></li>
-	  <li><a href="#!"> My Courses </a></li>
+
+	  <li><%= link_to "My Projects", myprojects_path %></li>
+	 
 	  <li class="divider"></li>
 	  <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 	</ul>
 	<!-- we create two one for mobile and one for web -->
-	<ul id="dropdown2" class="dropdown-content">
+	<ul id="dropdown2" class="dropdown-content mask">
 	  <li><%= link_to "My Profile", edit_user_registration_path %></li>
-	  <li><a href="#!"> My Courses </a></li>
+	  <li><%= link_to "My Projects", myprojects_path %></li>
 	  <li class="divider"></li>
 	  <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 	</ul>
@@ -28,7 +30,7 @@
 		        	<li><%= link_to "Login", new_user_session_path %></li>
 		       	<% else %>
 		        	<li><a class="dropdown-button valign-wrapper" href="#!" data-activates="dropdown1">
-		        		<%= image_tag avatar_url(current_user), class: "circle responsive-image" %>&nbsp;
+		        		<%= image_tag avatar_url(current_user), class: "circle responsive-image avatar-small" %>&nbsp;
 		        		<%= current_user.email %><i class="mdi-navigation-arrow-drop-down right"></i></a>
 		        	</li>
 	        	<% end %>	
@@ -40,7 +42,7 @@
 		        	<li><%= link_to "Login", new_user_session_path %></li>
 		       	<% else %>
 		        	<li><a class="dropdown-button valign-wrapper" href="#!" data-activates="dropdown2">
-		        		<%= image_tag avatar_url(current_user), class: "circle responsive-image" %> &nbsp;
+		        		<%= image_tag avatar_url(current_user), class: "circle responsive-image avatar-small" %> &nbsp;
 
 		        		<%= current_user.email %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
 	        	<% end %>
