@@ -49,6 +49,7 @@
 			</div>
 			<div class="card-content grey-text text-darken-4">
 				<h5><%= @project.name %></h5>
+				<span><%= @project.average_rating %> <%= @reviews.count %> <%= @reviews.count > 1? "Reviews" : "Review" %> </span>
 				<hr>
 				<%= @project.content %>
 
@@ -66,6 +67,12 @@
 				<% end %>
 				</div>
 
+			</div>
+
+			<div class="card-content">
+				<h4>Reviews</h4>
+				<div><%= render 'reviews/form' if @joined && !@hasReview %></div>	
+				<div><%= render 'reviews/index' %> </div>
 			</div>
 		</div>
 	</div>
