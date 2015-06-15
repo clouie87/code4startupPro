@@ -24,4 +24,9 @@ class Project < ActiveRecord::Base
   		reviews.blank? ? 0 : reviews.average(:star).round(2)
   	end
 
+  	def price_in_cents
+  		price*100
+  	end
+
+
 end
