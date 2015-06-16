@@ -29,7 +29,7 @@
 
 							<script>
 							  var handler = StripeCheckout.configure({
-							    key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+							    key: '<%= ENV['STRIPE_PUBLIC_KEY'] %>',
 							    token: function(token, arg) {
 							    console.log(token.email, token.id);
 							      $('#stripeToken').val(token.id);

@@ -32,8 +32,6 @@ gem 'coderay', '~> 1.1.0'
 
 gem 'paperclip', '~> 4.2.1'
 
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-
 gem 'friendly_id', '~> 5.1.0'
 gem "active_admin-sortable_tree", "~> 0.2.1"
 # Use jquery as the JavaScript library
@@ -45,14 +43,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'figaro', '~> 1.1.1'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

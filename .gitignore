@@ -22,3 +22,5 @@
 /app/mailers/my_mailer.rb
 /config/initializers/devise.rb
 /config/initializers/stripe.rb
+# Ignore application configuration
+/config/application.yml
