@@ -1,3 +1,22 @@
+<% content_for :head do %>
+	<title><%= @project.name %>| Pro4Code ></title>
+
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@caroline_louie">
+	<meta name="twitter:creator" content="@caroline_louie">
+	<meta name="twitter:title" content="<%= @project.name %>">
+	<meta name="twitter:description" content="<%= @project.content %>">
+	<meta name="twitter:image:src" content="<%= image_url @project.image %>">
+
+	<!-- Open Graph Data -->
+	<meta property="og:site_name" content="Pro4Code">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="<%= @project.name %>">
+	<meta property="og:description" content="<%= @project.content %>">
+	<meta property="og:image" content="<%= @project.image %>">
+<% end %>
+
 <div class = "row">
 	<div class="col m4">
 		<div class="card z-depth-2">
@@ -126,14 +145,27 @@
 						</div>
 				    </div>
 
-				    <div id="discussions" class="col s12">
-				    	<!-- Disscussion will go here soon -->
+				    <div id="discussions" class="col s10 offset-s1">
+				    	<div id="disqus_thread"></div>
+							<script type="text/javascript">
+							    /* * * CONFIGURATION VARIABLES * * */
+							    var disqus_shortname = 'clouie';
+
+							    var disqus_identifier = '<%= @project.id %>';
+							    
+							    /* * * DON'T EDIT BELOW THIS LINE * * */
+							    (function() {
+							        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+							        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+							        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+							    })();
+							</script>
+							<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 				    </div>
-  	
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 
 <script>
