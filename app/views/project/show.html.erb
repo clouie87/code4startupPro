@@ -26,6 +26,13 @@
 				<h1>$<%= @project.price == 0? 'Free' : "#{@project.price}" %></h1>
 			</div>
 			<div class="card-action center">
+				<div>
+						<p><%= markdown(@project.github) %></p>	
+				</div>
+
+				<div> 
+					<p>Languages used: <%= @project.language %></p>
+				</div>
 				<% if user_signed_in? %>
 
 					<% if @project.price == 0 %>
@@ -87,6 +94,9 @@
 				<h5><%= current_user.name %></h5>
 			</div>
 			<div class="card-action center">
+				<div> 
+					<p>Languages used: <%= @project.language %></p>
+				</div>
 				<% @users.each do |u| %>
 					<span class="valign-wrapper">
 						<%= image_tag avatar_url(u), class: "circle responsive-image avatar-small" %>&nbsp;
@@ -97,6 +107,10 @@
 
 			<% end %>
 		</div>
+
+
+
+
 	</div>
 
 
@@ -119,6 +133,7 @@
 				    <div id="about" class="col s12">
 				    	<div class="card-content grey-text text-darken-4">
 							<h5><%= @project.name %></h5>
+							
 							<span id="average_rating"></span>
 							<p> <%= @reviews.count %> <%= @reviews.count > 1? "Reviews" : "Review" %> </p>
 							<hr>

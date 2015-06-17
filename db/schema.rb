@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613225404) do
+ActiveRecord::Schema.define(version: 20150617193500) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 20150613225404) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "slug"
+    t.text     "language"
+    t.text     "github"
   end
 
   add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true
