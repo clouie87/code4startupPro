@@ -19,7 +19,7 @@ ActiveAdmin.register Project do
 			f.input :name
 			f.input :content
 			f.input :price
-			# f.input :language
+			f.input :language
 			f.input :github
 			f.input :image, hint: f.project.image? ? image_tag(project.image.url, height: '100') : content_tag(:span, 'Upload and image here')
 		end

@@ -25,14 +25,17 @@
 			<div class="center">
 				<h1>$<%= @project.price == 0? 'Free' : "#{@project.price}" %></h1>
 			</div>
-			<div class="card-action center">
+			<div class="card-content">
 				<div>
-						<p><%= markdown(@project.github) %></p>	
+					<p class="float-left">Github Repos:</p>
+					<p class="float-right"><%= markdown(@project.github) %></p>	
 				</div>
-
 				<div> 
 					<p>Languages used: <%= @project.language %></p>
 				</div>
+			</div>
+			<div class="card-action center">
+				
 				<% if user_signed_in? %>
 
 					<% if @project.price == 0 %>
@@ -94,9 +97,6 @@
 				<h5><%= current_user.name %></h5>
 			</div>
 			<div class="card-action center">
-				<div> 
-					<p>Languages used: <%= @project.language %></p>
-				</div>
 				<% @users.each do |u| %>
 					<span class="valign-wrapper">
 						<%= image_tag avatar_url(u), class: "circle responsive-image avatar-small" %>&nbsp;

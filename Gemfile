@@ -13,6 +13,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+
 gem 'materialize-sass'
 gem 'devise', '~> 3.5.1'
 gem 'toastr-rails'
@@ -59,8 +62,7 @@ group :development, :production, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  # Use sqlite3 as the database for Active Record
-	gem 'sqlite3'
+  
 
 end
 
