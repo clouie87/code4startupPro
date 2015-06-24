@@ -19,12 +19,17 @@ body {
 
   * {
 
-    font-family: roboto-thin;
+    font-family: roboto;
 
   }
 
   main {
     flex: 1 0 auto;
+  }
+
+  .underline {
+    text-decoration: underline;
+    color: #EE6E73;  
   }
     
   .header {
@@ -34,11 +39,6 @@ body {
   .footer {
     background-color: #5A6368;
   } 
-
-  .social-button{
-    width: 100px;
-
-  }
 
   .right hide-on-med-and-down{
     font-size: 18pt;
