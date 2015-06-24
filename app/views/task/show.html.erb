@@ -1,8 +1,12 @@
 <div class="row" data-no-turbolink>
 	<div class="col m4">
 		<div class="card z-depth-2">
-			<div class="card-content">
+			<div class="card-action center">
+				<div class="center" style="color: #EE6E73">
+					<h3><%= @task.project.name %></h3>
+				</div>
 				<div class="collection">
+
 					<% @tasks.each do |task| %>
 						<% if task.header %>
 
@@ -24,28 +28,42 @@
 
 	<div class="col m8">
 		<div class="card z-depth-2">
-			<div id= "wistia_<%= @task.video %>"></div>
+			<% if @task.video == "asd" %>
+				<div class="card-image">
+					<div><%= image_tag @task.image %></div>
+				</div>
+				<div class="card-action grey-text text-darken-4">
+					<h5><%= @task.title %></h5>
+						<hr>
+						<%= markdown(@task.note) %>
+				</div>
+				<%= image_tag "coasterinvader.png" %>
 
-			<div class="row">
-				<div class="col m6">
-					<% if !@prev_task.nil? %>
-						<%= link_to "Previous", [@prev_task.project, @prev_task], class: "btn btn-primary" %>
-					<% else %>
-						&nbsp;
-					<% end %>
+			<% else %>
+				<div id= "wistia_<%= @task.video %>"></div>
+
+				<div class="row">
+					<div class="col m6">
+						<% if !@prev_task.nil? %>
+							<%= link_to "Previous", [@prev_task.project, @prev_task], class: "btn btn-primary" %>
+						<% else %>
+							&nbsp;
+						<% end %>
+					</div>
+
+					<div class="col m6">
+						<% if !@next_task.nil? %>
+							<span class="right">
+								<%= link_to "Next", [@next_task.project, @next_task], class: "btn btn-primary" %>
+							</span>
+						<% end %>
+						
+					</div>
 				</div>
 
-				<div class="col m6">
-					<% if !@next_task.nil? %>
-						<span class="right">
-							<%= link_to "Next", [@next_task.project, @next_task], class: "btn btn-primary" %>
-						</span>
-					<% end %>
-					
-				</div>
-			</div>
 
 			<div class="card-action grey-text text-darken-4">
+			
 				<button class="btn btn-primary" onclick= "setPlaySpeed(0.75)" > 0.75 </button>
 				<button class="btn btn-primary" onclick= "setPlaySpeed(1.0)" > 1 </button>
 				<button class="btn btn-primary" onclick= "setPlaySpeed(1.5)" > 1.5 </button>
@@ -54,8 +72,12 @@
 				<h5><%= @task.title %></h5>
 				<hr>
 				<%= markdown(@task.note) %>
+
+				<img src="././assets/images/coasterinvader.png" />
+				
 			</div>
 		</div>
+		<% end %>
 	</div>
 </div>
 

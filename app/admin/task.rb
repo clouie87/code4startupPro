@@ -1,5 +1,5 @@
 ActiveAdmin.register Task do
-	permit_params :title, :note, :video, :header, :tag, :project_id
+	permit_params :title, :note, :video, :image, :header, :tag, :project_id
 
 	sortable tree:false,
 			sorting_attribute: :tag
@@ -16,21 +16,21 @@ ActiveAdmin.register Task do
 		column :title
 		column :tag
 		column :project
+		column :image
 
 		actions
 	end
 
-	form do |f|
+	form :html => { :enctype => "multipart/form-data" } do |f|
 		f.inputs do
-			input :project, label: "Project"
-			input :title, label: "Title"
-			input :note, label: "Note"
-			input :video, label: "Video"
-			input :header, label: "Header"
+			f.input :project, label: "Project"
+			f.input :title, label: "Title"
+			f.input :note, label: "Note"
+			f.input :video, label: "Video"
+			f.input :image, hint: f.task.image? ? image_tag(task.image.url, height: '100') : content_tag(:span, 'Upload and image here')
+			f.input :header, label: "Header"
 		end
-		actions
+		f.actions
 	end
-
-
 
 end

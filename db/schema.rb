@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617193500) do
+ActiveRecord::Schema.define(version: 20150622181830) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 20150617193500) do
     t.string   "slug"
     t.text     "language"
     t.text     "github"
+    t.integer  "tag"
+    t.string   "date"
   end
 
   add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true
@@ -115,12 +117,16 @@ ActiveRecord::Schema.define(version: 20150617193500) do
     t.string   "title"
     t.text     "note"
     t.string   "video"
-    t.boolean  "header",     default: false, null: false
+    t.boolean  "header",             default: false, null: false
     t.integer  "tag"
     t.integer  "project_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "slug"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"

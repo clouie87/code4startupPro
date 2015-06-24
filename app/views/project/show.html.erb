@@ -20,97 +20,39 @@
 <div class = "row">
 	<div class="col m4">
 		<div class="card z-depth-2">
-			<% if !@joined %>
-
 			<div class="center">
-				<h1>$<%= @project.price == 0? 'Free' : "#{@project.price}" %></h1>
+				<h1><%= @project.date %></h1>
 			</div>
+
 			<div class="card-content">
 				<div>
-					<p class="float-left">Github Repos:</p>
 					<p class="float-right"><%= markdown(@project.github) %></p>	
 				</div>
 				<div> 
 					<p>Languages used: <%= @project.language %></p>
 				</div>
 			</div>
+		</div><br/>
+		<div class="card z-depth-2">
 			<div class="card-action center">
-				
-				<% if user_signed_in? %>
-
-					<% if @project.price == 0 %>
-						<%= form_tag free_path do %>
-							<%= hidden_field_tag 'project_id', @project.id %>
-							<button class="btn waves-effect waves-light pink darken-2">
-								Take this Project
-							</button>
-						<% end %>
-					<% else %>
-						<%= form_tag pay_path, id:'chargeForm' do %>
-
-							<script src="https://checkout.stripe.com/checkout.js"></script>
-
-							<%= hidden_field_tag 'stripeToken' %>
-							<%= hidden_field_tag 'stripeEmail' %>
-							<%= hidden_field_tag 'project_id', @project.id %>
-
-							<button id="customButton" type="button" class="btn pink darken-2">Take this Project</button><br/>
-
-							<script>
-							  var handler = StripeCheckout.configure({
-							    key: '<%= ENV['STRIPE_PUBLIC_KEY'] %>',
-							    token: function(token, arg) {
-							    console.log(token.email, token.id);
-							      $('#stripeToken').val(token.id);
-							      $('#stripeEmail').val(token.email);
-							      $('#chargeForm').submit();
-							    }
-							  });
-
-							  $('#customButton').on('click', function(e) {
-							    // Open Checkout with further options
-							    handler.open({
-							      name: 'Pro4Code',
-							      description: '<%= @project.name %>',
-							      amount: '<%= @project.price_in_cents %>',
-							      email: '<%= current_user.email %>'
-							    });
-							    e.preventDefault();
-							  });
-
-							</script>
+				<div class="center">
+					<h3>More Information</h3>
+				</div>
+				<div class="collection" data-no-turbolink>
+				    <% @tasks.each do |task| %>
+						<% if task.header %>
+							<div class="collection-item active">
+								<i class="mdi-social-school"> <%= task.title %></i>
+							</div>
+						<% else %>
+							<%= link_to [task.project, task], class: "collection-item" do %>
+								<%= task.title %>
+							<% end %>
 						<% end %>
 					<% end %>
-
-				<% else %>
-					<%= link_to new_user_session_path do %>
-						<button class="btn waves-effect waves-light pink darken-2">
-							Take this Project
-						</button>
-					<% end %>
-				<% end %>
+				</div>
 			</div>
-
-			<% else %>
-			<div class="card-content center">
-				<%= image_tag avatar_url(current_user), class: "circle responsive-image avatar-medium" %><br/>
-				<h5><%= current_user.name %></h5>
-			</div>
-			<div class="card-action center">
-				<% @users.each do |u| %>
-					<span class="valign-wrapper">
-						<%= image_tag avatar_url(u), class: "circle responsive-image avatar-small" %>&nbsp;
-						<%= u.name %>
-					</span><br/>
-				<% end %>
-			</div>
-
-			<% end %>
 		</div>
-
-
-
-
 	</div>
 
 
@@ -126,7 +68,6 @@
 				    <div class="col s12">
 				      <ul class="tabs">
 				        <li class="tab col s3"><a class="active" href="#about">About</a></li>
-				        <li class="tab col s3"><a href="#videos">Videos</a></li>
 				        <li class="tab col s3"><a href="#discussions">Discussions</a></li>
 				      </ul>
 				    </div>
@@ -138,27 +79,10 @@
 							<p> <%= @reviews.count %> <%= @reviews.count > 1? "Reviews" : "Review" %> </p>
 							<hr>
 					    	<%= @project.content %>
-					    	<h4>Reviews</h4>
-							<div><%= render 'reviews/form' if @joined && !@hasReview %></div>	
-							<div><%= render 'reviews/index' %> </div> 
+					    	
 						</div>
 				    </div>
 				    
-				    <div id="videos" class="col s10 offset-s1">
-				    	<div class="collection" data-no-turbolink>
-						    <% @tasks.each do |task| %>
-								<% if task.header %>
-									<div class="collection-item active">
-										<i class="mdi-social-school"> <%= task.title %></i>
-									</div>
-								<% else %>
-									<%= link_to [task.project, task], class: "collection-item" do %>
-										<%= task.title %>
-									<% end %>
-								<% end %>
-							<% end %>
-						</div>
-				    </div>
 
 				    <div id="discussions" class="col s10 offset-s1">
 				    	<div id="disqus_thread"></div>

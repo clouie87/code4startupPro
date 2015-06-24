@@ -1,10 +1,26 @@
 @import "materialize";
 @import "toastr";
 
+@font-face {
+  font-family: roboto;
+  src: url('Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: roboto-thin;
+  src: url('Roboto-Thin.ttf') format('truetype');
+}
+
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+  }
+
+  * {
+
+    font-family: roboto-thin;
+
   }
 
   main {
@@ -19,8 +35,37 @@ body {
     background-color: #5A6368;
   } 
 
+  .social-button{
+    width: 100px;
+
+  }
+
+  .right hide-on-med-and-down{
+    font-size: 18pt;
+  }
+
+  .card .card-action a {
+    
+    margin-right: 0px;
+    color: #EE6E73;
+    
+    letter-spacing: .8px;
+
+  }
+
+  .collection a.collection-item:not(.active):hover {
+    color: #EE6E73;
+    background-color: #FAFAFA;
+    
+    
+  }
+  .collection .collection-item.active {
+    background-color: #EE6E73;
+  }
+    
   .container {
     width: 95%;
+    
   } 
 
   .avatar-small {
