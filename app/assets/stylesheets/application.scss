@@ -31,25 +31,47 @@ body {
     text-decoration: underline;
     color: #EE6E73;  
   }
-    
+
+  .line {
+    border-bottom: 1px solid #EE6E73;
+  }
+  
   .header {
   	background-color: #5A6368;
   } 
 
+  h5 {
+    font-family: roboto-thin;
+  }
+
   .footer {
     background-color: #5A6368;
   } 
+
+  .footer-image {
+    max-width: 80%;
+  }
+
+  .topline {
+     margin-top: -15px;
+     border-top: 1px solid #EE6E73;
+  }
+
+  .about {
+    margin-top: 10px;
+  }
 
   .right hide-on-med-and-down{
     font-size: 18pt;
   }
 
   .card .card-action a {
-    
+    text-transform: none;
+    font-size: 16px;
     margin-right: 0px;
     color: #EE6E73;
     
-    letter-spacing: .8px;
+    letter-spacing: .9px;
 
   }
 
