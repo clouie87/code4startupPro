@@ -2,28 +2,27 @@
 	  <div class="container">
 	    <div class="row valign-wrapper">
 	      <div class="col l4 s12">
+	      	<br/>
 	        <h5 class="white-text">Carol Louie</h5>
 	        <p class="grey-text text-lighten-4">I am an avid traveller. I love the challenges of learning; embracing a new culture, language or skill. Over the last year, I have been learning how to code in an immersion program <a href="http://www.uitstartup.org/">UIT</a>, where I acquired and developed the work habits and skills to develop a product from ideation and client discovery, to execution, testing and release. <%= link_to "Read more about me...", pages_about_path, :class => "red-text text-lighten-3" %> </p>
 	      </div>
-	      <div class="col l4 s12">
-	      	<br/>
-	        <h5 class="white-text">Find me Professionally:</h5><br/>
+	      <div class="col l4 offset-l3 s12">
+	        <h5 class="white-text">Find me:</h5><br/>
 	        	<div class="row valign-wrapper">
-	        		<a href="https://twitter.com/caroline_louie"><%= image_tag "resumef.png", class:"circle responsive-img" %></a> &nbsp;&nbsp;&nbsp;&nbsp;
+	        		<%= link_to asset_path("resume.pdf"), :format => :pdf do %>
+	        		<%= image_tag "resumef.png", class:"circle responsive-img" %></a>
+
+	        		<% end %> &nbsp;&nbsp;&nbsp;&nbsp;
+
+	        		<%= link_to application_download_url do %>
+	        		<%= image_tag "resumef.png", class:"circle responsive-img" %></a>
+	        	 	<% end %>&nbsp;&nbsp;&nbsp;&nbsp;
 					 <a href="https://www.github.com/clouie87"><%= image_tag "githubf.png", class:"circle responsive-img" %></a>&nbsp;&nbsp;&nbsp;&nbsp; 
 					 <a href="https://ca.linkedin.com/pub/carol-louie/87/995/762"><%= image_tag "linkedinf.png", class:"circle responsive-img" %></a>&nbsp;&nbsp;&nbsp;&nbsp;
-					 <a href="https://www.facebook.com/carol.louie"><%= image_tag "blogf.png", class:"circle responsive-img" %></a>
+					 <a href="http://uitblog.com/" target="_blank"><%= image_tag "blogf.png", class:"circle responsive-img" %></a>&nbsp;&nbsp;&nbsp;&nbsp;
+					 <a href="https://twitter.com/caroline_louie"><%= image_tag "twitter.png", class:"responsive-img footer-image"  %></a>&nbsp;&nbsp;&nbsp;&nbsp;
 	        	</div>
 	        </div>
-	        <div class="col l4 s12">
-	      	
-	        <h5 class="white-text">Or Socially:</h5><br/>
-	        	<div class="row valign-wrapper">
-	        		<a href="https://twitter.com/caroline_louie"><%= image_tag "twitter.png", class:"responsive-img footer-image"  %></a>&nbsp;&nbsp;&nbsp;&nbsp;
-	        		<a href="https://www.facebook.com/carol.louie"><%= image_tag "facebook.png", class:"responsive-img footer-image" %></a>&nbsp;&nbsp;&nbsp;&nbsp;
-	          		<a href="https://instagram.com/clouie87/"><%= image_tag "instagram.png", class:"responsive-img" %></a>&nbsp;&nbsp;&nbsp;&nbsp;
-	          		<a href="https://www.facebook.com/carol.louie"><%= image_tag "google.png", class:"responsive-img" %></a>
-	        	</div>
 	      </div>
 	    </div>
 	  </div>

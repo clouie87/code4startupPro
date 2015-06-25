@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def download
+  send_file(
+    "#{Rails.root}/app/assets/images/resume.pdf",
+    filename: "carol_louie_resume.pdf",
+    type: "application/pdf"
+  )
+  end
+
   protected
 
   def configure_permitted_parameters
