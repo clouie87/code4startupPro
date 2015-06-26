@@ -43,6 +43,12 @@ body {
   h5 {
     font-family: roboto-thin;
   }
+  h3 {
+    font-family: roboto-thin;
+  }
+  p {
+    font-size: 16px;
+  }
 
   .footer {
     background-color: #5A6368;
@@ -78,18 +84,31 @@ body {
   .collection a.collection-item:not(.active):hover {
     color: #EE6E73;
     background-color: #FAFAFA;
-    
+
     
   }
   .collection .collection-item.active {
-    background-color: #EE6E73;
+    background-color: #37474F;
+    color: #EE6E73;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
   }
     
   .container {
     width: 95%;
     
   } 
-
+  i.social {
+    padding: 5px 10px;
+    display: inline-block;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    -moz-box-shadow: 0px 0px 2px #888;
+    -webkit-box-shadow: 0px 0px 2px #888;
+    box-shadow: 0px 0px 2px #888;
+  }
+  
   .avatar-small {
     width: 50px;
   }

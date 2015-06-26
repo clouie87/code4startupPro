@@ -1,5 +1,5 @@
 ActiveAdmin.register Task do
-	permit_params :title, :note, :video, :image, :header, :tag, :project_id
+	permit_params :title, :note, :video, :image, :header, :tag, :project_id, :live
 
 	sortable tree:false,
 			sorting_attribute: :tag
@@ -17,6 +17,7 @@ ActiveAdmin.register Task do
 		column :tag
 		column :project
 		column :image
+		column :live
 
 		actions
 	end
@@ -29,6 +30,7 @@ ActiveAdmin.register Task do
 			f.input :video, label: "Video"
 			f.input :image, hint: f.task.image? ? image_tag(task.image.url, height: '100') : content_tag(:span, 'Upload and image here')
 			f.input :header, label: "Header"
+			f.input :live, label: "Live"
 		end
 		f.actions
 	end

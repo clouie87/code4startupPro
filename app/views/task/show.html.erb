@@ -71,9 +71,11 @@
 
 				<h5><%= @task.title %></h5>
 				<hr>
+				
 				<%= markdown(@task.note) %>
-
-				<img src="././assets/images/coasterinvader.png" />
+				<div class="center">
+					<%= image_tag @task.image, class:"center", style:"width:300px" %>
+				</div>
 				
 			</div>
 		</div>
